@@ -6,7 +6,7 @@
 /*   By: rodrigoa <rodrigoa@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:21:31 by rodrigoa          #+#    #+#             */
-/*   Updated: 2026/04/10 14:12:50 by rodrigoa         ###   ########.fr       */
+/*   Updated: 2026/04/10 16:02:20 by rodrigoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -56,18 +56,20 @@ void	heap_sort(int arr[], int n)
 	}
 }
 
+// TESTING
 int	main()
 {
-	int	arr[];
+	int	arr[] = {7, 5, 9, 42, 0, 10, 3, 4};
 	int	n;
+	int	i;
 
-	arr[] = {9, 4, 3, 8, 10, 2, 5};
-	n = sizeof(arr) / sizeof(arr[0]);
+	n = (sizeof(arr) / sizeof(arr[0]));
+	i = 0;
 	heap_sort(arr, n);
 	while (i < n)
 	{
-		i = 0;
 		printf("%d ", arr[i]);
+		i++;
 	}
 	return (0);
 }
