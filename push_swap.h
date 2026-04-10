@@ -59,8 +59,7 @@ void			rb(t_stack_node **stack_b, int testing);
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
 void			rra(t_stack_node **stack_a, int testing);
 void			rrb(t_stack_node **stack_b, int testing);
-void			rrr(t_stack_node **stack_a, t_stack_node **stack_b,
-					int testing);
+void			rrr(t_stack_node **stack_a, t_stack_node **stack_b,int testing);
 void			sa(t_stack_node **stack_a, int testing);
 void			sb(t_stack_node **stack_b, int testing);
 void			ss(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
