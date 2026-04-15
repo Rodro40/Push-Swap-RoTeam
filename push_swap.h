@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/01 14:07:49 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/15 18:47:26 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 //PARSER
-t_stack_node	*parse_and_fill_stack(int argc, char **argv);
+t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx);
 int				is_valid_number(const char *str);
 int				check_duplicate(t_stack_node *stack, int num);
 void			add_to_stack(t_stack_node **stack, int num);
@@ -59,7 +59,8 @@ void			rb(t_stack_node **stack_b, int testing);
 void			rr(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
 void			rra(t_stack_node **stack_a, int testing);
 void			rrb(t_stack_node **stack_b, int testing);
-void			rrr(t_stack_node **stack_a, t_stack_node **stack_b,int testing);
+void			rrr(t_stack_node **stack_a, t_stack_node **stack_b,
+					int testing);
 void			sa(t_stack_node **stack_a, int testing);
 void			sb(t_stack_node **stack_b, int testing);
 void			ss(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
