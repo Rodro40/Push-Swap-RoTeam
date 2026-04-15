@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigoa <rodrigoa@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:21:31 by rodrigoa          #+#    #+#             */
-/*   Updated: 2026/04/10 16:02:20 by rodrigoa         ###   ########.fr       */
+/*   Updated: 2026/04/14 20:51:13 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 
 void	heapify(int arr[], int n, int i)
 {
@@ -57,7 +57,7 @@ void	heap_sort(int arr[], int n)
 }
 
 // TESTING
-int	main()
+int	main(void)
 {
 	int	arr[] = {7, 5, 9, 42, 0, 10, 3, 4};
 	int	n;
