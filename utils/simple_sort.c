@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:36:35 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 20:12:06 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 21:26:55 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	simple_sort(t_stack_node **a, t_stack_node **b)
 	int	size;
 	int	min_pos;
 
-	size = stack_size(*a);
+	size = stack_size(*a);  // TODO: Replace with the original 'len_stack'
 	while (size > 0)
 	{
 		min_pos = get_min_pos(*a);

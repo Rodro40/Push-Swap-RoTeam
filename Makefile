@@ -17,6 +17,7 @@ src/moves/pushing.c \
 src/moves/rotating.c \
 src/moves/rrotating.c \
 src/moves/swapping.c \
+utils/simple_sort.c \
 utils/frees.c \
 utils/ft_safe_atoi.c \
 utils/stack_mngr.c

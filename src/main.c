@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:18:58 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 19:44:45 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 21:04:49 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	is_sorted(t_stack_node *stack)
 int	main(int argc, char **argv)
 {
 	t_stack_node	*stack_a;
+	t_stack_node	*stack_b;
 	t_strategy		strategy;
 	int				bench;
 	int				start_idx;
@@ -88,10 +89,12 @@ int	main(int argc, char **argv)
 	stack_a = parse_and_fill_stack(argc, argv, start_idx);
 	if (!stack_a)
 		return (write(2, "Error\n", 6), 1);
+	stack_b = NULL;
 	set_node_index(stack_a);
 	disorder = compute_disorder(stack_a);
 	if (!is_sorted(stack_a))
 	{
+		simple_sort(&stack_a, &stack_b);
 		// TODO: Llamaremos a los algoritmos aquí
 	}
 	return (free_stack(stack_a), 0);
