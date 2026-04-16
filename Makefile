@@ -1,12 +1,18 @@
 NAME = push_swap
 CC = cc
-FLAGS = -Wall -Werror -Wextra -I. -I./libft
+INC_FOLDER = inc
 
-LIBFT_DIR = ./Libft
+FLAGS = -Wall -Werror -Wextra
+
+LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+INC_FLAGS = -I $(INC_FOLDER) -I $(LIBFT_DIR)
 
 SRC = src/main.c \
 src/parser.c \
+src/disorder.c \
+src/index.c \
 src/moves/pushing.c \
 src/moves/rotating.c \
 src/moves/rrotating.c \
@@ -23,10 +29,10 @@ $(LIBFT):
 	@make -C $(LIBFT_DIR)
 
 $(NAME) : $(OBJ) $(LIBFT)
-	$(CC) $(FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+	$(CC) $(INC_FLAGS) $(FLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(INC_FLAGS) $(FLAGS) -c $< -o $@
 
 clean : 
 	@make clean -C $(LIBFT_DIR)

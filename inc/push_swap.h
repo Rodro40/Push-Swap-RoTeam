@@ -6,14 +6,14 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/15 18:47:26 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:19:49 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "Libft/libft.h"
+# include "libft.h"
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
@@ -64,5 +64,8 @@ void			rrr(t_stack_node **stack_a, t_stack_node **stack_b,
 void			sa(t_stack_node **stack_a, int testing);
 void			sb(t_stack_node **stack_b, int testing);
 void			ss(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
+
+void			set_node_index(t_stack_node *stack);
+float			compute_disorder(t_stack_node *stack);
 
 #endif

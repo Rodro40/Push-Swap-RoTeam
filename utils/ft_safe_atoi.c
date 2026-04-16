@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_safe_atoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:53:04 by roandres          #+#    #+#             */
-/*   Updated: 2026/03/23 14:57:33 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:11:57 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	ft_safe_atoi(const char *str, int *out)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:18:31 by roandres          #+#    #+#             */
-/*   Updated: 2026/03/31 18:01:26 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:11:14 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	is_valid_number(const char *str)
 {

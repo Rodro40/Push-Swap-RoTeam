@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   frees.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 15:03:09 by roandres          #+#    #+#             */
-/*   Updated: 2026/03/25 20:58:29 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:11:41 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	free_split(char **split)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   disorder.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 17:15:36 by roandres          #+#    #+#             */
-/*   Updated: 2026/03/31 17:15:48 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:11:23 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 // Calculates the disorder index of the stack (between 0.0 and 1.0)
 float	compute_disorder(t_stack_node *stack)

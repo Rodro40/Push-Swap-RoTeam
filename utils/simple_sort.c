@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:36:35 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/14 21:33:25 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:12:06 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 // Calculates the amount of nodes in a stack
 static int	stack_size(t_stack_node *stack)

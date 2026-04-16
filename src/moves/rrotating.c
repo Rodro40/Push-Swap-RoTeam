@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rrotating.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 20:10:30 by roandres          #+#    #+#             */
-/*   Updated: 2026/03/25 20:40:24 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 20:15:33 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 void	ft_rev_rotate_node(t_stack_node **stack)
 {

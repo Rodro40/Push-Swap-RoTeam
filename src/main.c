@@ -6,12 +6,14 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:18:58 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/15 18:47:31 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/16 19:44:45 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
+// TODO: Mirar el tema de los structs para pasadas de argumentos como parse_flags.
+// TODO: No usar ../xxxx.h si no hacer lo del make.
 static int	check_strat(char *arg, t_strategy *strat)
 {
 	if (!ft_strncmp(arg, "--simple", 9))
