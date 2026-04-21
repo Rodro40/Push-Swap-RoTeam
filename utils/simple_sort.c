@@ -6,25 +6,11 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:36:35 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 21:26:55 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/21 19:11:18 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// Calculates the amount of nodes in a stack
-static int	stack_size(t_stack_node *stack)
-{
-	int	count;
-
-	count = 0;
-	while (stack)
-	{
-		count++;
-		stack = stack->next;
-	}
-	return (count);
-}
 
 // Finds the position (distance from top) of the node with the smallest index
 static int	get_min_pos(t_stack_node *stack)
@@ -55,7 +41,7 @@ void	simple_sort(t_stack_node **a, t_stack_node **b)
 	int	size;
 	int	min_pos;
 
-	size = stack_size(*a);  // TODO: Replace with the original 'len_stack'
+	size = len_stack(*a);
 	while (size > 0)
 	{
 		min_pos = get_min_pos(*a);

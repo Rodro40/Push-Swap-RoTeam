@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 21:02:48 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/21 19:00:46 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void			ss(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
 
 //ALGORITHMS
 void			simple_sort(t_stack_node **a, t_stack_node **b);
+void			medium_sort(t_stack_node **a, t_stack_node **b);
 
 void			set_node_index(t_stack_node *stack);
 float			compute_disorder(t_stack_node *stack);
