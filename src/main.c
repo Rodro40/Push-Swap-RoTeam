@@ -6,14 +6,13 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:18:58 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 21:04:49 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/21 19:32:51 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // TODO: Mirar el tema de los structs para pasadas de argumentos como parse_flags.
-// TODO: No usar ../xxxx.h si no hacer lo del make.
 static int	check_strat(char *arg, t_strategy *strat)
 {
 	if (!ft_strncmp(arg, "--simple", 9))
@@ -94,7 +93,7 @@ int	main(int argc, char **argv)
 	disorder = compute_disorder(stack_a);
 	if (!is_sorted(stack_a))
 	{
-		simple_sort(&stack_a, &stack_b);
+		medium_sort(&stack_a, &stack_b);
 		// TODO: Llamaremos a los algoritmos aquí
 	}
 	return (free_stack(stack_a), 0);
