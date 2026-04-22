@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/21 19:20:50 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/22 12:03:35 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,20 @@ typedef struct s_stack_node
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }	t_stack_node;
+
+typedef struct s_ctx
+{
+	t_strategy	strategy;
+	int			bench;
+	int			start_idx;
+}	t_ctx;
+
+//FLAGS
+int				parse_flags(char **argv, t_ctx *ctx);
+int				init_ctx(int argc, char **argv, t_ctx *ctx);
+
+//STRATEGY
+void			run_strategy(t_stack_node **a, t_stack_node **b, t_ctx *ctx);
 
 //PARSER
 t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx);

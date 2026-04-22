@@ -10,9 +10,11 @@ LIBFT = $(LIBFT_DIR)/libft.a
 INC_FLAGS = -I $(INC_FOLDER) -I $(LIBFT_DIR)
 
 SRC = src/main.c \
-src/parser.c \
 src/disorder.c \
+src/flags.c \
 src/index.c \
+src/parser.c \
+src/strategy.c \
 src/moves/pushing.c \
 src/moves/rotating.c \
 src/moves/rrotating.c \

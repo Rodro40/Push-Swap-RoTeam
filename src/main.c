@@ -3,98 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:18:58 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/21 19:32:51 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/22 12:03:56 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// TODO: Mirar el tema de los structs para pasadas de argumentos como parse_flags.
-static int	check_strat(char *arg, t_strategy *strat)
-{
-	if (!ft_strncmp(arg, "--simple", 9))
-		*strat = SIMPLE;
-	else if (!ft_strncmp(arg, "--medium", 9))
-		*strat = MEDIUM;
-	else if (!ft_strncmp(arg, "--complex", 10))
-		*strat = COMPLEX;
-	else if (!ft_strncmp(arg, "--adaptive", 11))
-		*strat = ADAPTIVE;
-	else
-		return (0);
-	return (1);
-}
-
-// Parses flags, prevents duplicates, and catches invalid "--" flags.
-int	parse_flags(char **argv, t_strategy *strat, int *bench, int *idx)
-{
-	int	s_set;
-
-	s_set = 0;
-	while (argv[*idx])
-	{
-		if (!ft_strncmp(argv[*idx], "--bench", 8))
-			*bench = 1;
-		else if (check_strat(argv[*idx], strat))
-		{
-			if (s_set)
-				return (0);
-			s_set = 1;
-		}
-		else if (!ft_strncmp(argv[*idx], "--", 2))
-			return (0);
-		else
-			break ;
-		(*idx)++;
-	}
-	return (1);
-}
-
-// Checks if stack is completely sorted
-int	is_sorted(t_stack_node *stack)
-{
-	if (!stack)
-		return (1);
-	while (stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 int	main(int argc, char **argv)
 {
-	t_stack_node	*stack_a;
-	t_stack_node	*stack_b;
-	t_strategy		strategy;
-	int				bench;
-	int				start_idx;
-	float			disorder;
+	t_stack_node	*a;
+	t_stack_node	*b;
+	t_ctx			ctx;
+	int				status;
 
-	if (argc < 2)
+	status = init_ctx(argc, argv, &ctx);
+	if (status == 0)
 		return (0);
-	strategy = ADAPTIVE;
-	bench = 0;
-	start_idx = 1;
-	if (!parse_flags(argv, &strategy, &bench, &start_idx))
+	if (status < 0)
 		return (write(2, "Error\n", 6), 1);
-	if (start_idx >= argc)
-		return (0);
-	stack_a = parse_and_fill_stack(argc, argv, start_idx);
-	if (!stack_a)
+	a = parse_and_fill_stack(argc, argv, ctx.start_idx);
+	if (!a)
 		return (write(2, "Error\n", 6), 1);
-	stack_b = NULL;
-	set_node_index(stack_a);
-	disorder = compute_disorder(stack_a);
-	if (!is_sorted(stack_a))
-	{
-		medium_sort(&stack_a, &stack_b);
-		// TODO: Llamaremos a los algoritmos aquí
-	}
-	return (free_stack(stack_a), 0);
+	b = NULL;
+	set_node_index(a);
+	if (!stack_sorted(a))
+		run_strategy(&a, &b, &ctx);
+	free_stack(a);
+	return (0);
 }
