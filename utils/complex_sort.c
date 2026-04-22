@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: rodrigoa <rodrigoa@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:21:31 by rodrigoa          #+#    #+#             */
-/*   Updated: 2026/04/14 20:51:13 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/22 16:13:48 by rodrigoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 
 void	heapify(int arr[], int n, int i)
 {
@@ -21,9 +21,9 @@ void	heapify(int arr[], int n, int i)
 	largest = i;
 	left = 2 * i + 1;
 	right = 2 * i + 2;
-	if (left < n && arr[left] > arr[largest])
+	if (left < n && arr[left] > arr[i])
 		largest = left;
-	if (right < n && arr[right] > arr[largest])
+	if (right < n && arr[right] > arr[i])
 		largest = right;
 	if (largest != i)
 	{
@@ -37,35 +37,37 @@ void	heapify(int arr[], int n, int i)
 void	heap_sort(int arr[], int n)
 {
 	int	i;
+	int	j;
 	int	temp;
 
+	i = (n / 2);
 	while (i >= 0)
 	{
-		i = n / 2 - 1;
 		heapify(arr, n, i);
 		i--;
 	}
-	while (i > 0)
+	j = n - 1;
+	while (j >= 0)
 	{
-		i = n - 1;
 		temp = arr[0];
-		arr[0] = arr[i];
-		arr[i] = temp;
-		heapify(arr, i, 0);
-		i--;
+		arr[0] = arr[j];
+		arr[j] = temp;
+		heapify(arr, j, 0);
+		j--;
 	}
 }
 
 // TESTING
-int	main(void)
+int	main()
 {
 	int	arr[] = {7, 5, 9, 42, 0, 10, 3, 4};
 	int	n;
 	int	i;
 
-	n = (sizeof(arr) / sizeof(arr[0]));
 	i = 0;
+	n = (sizeof(arr) / sizeof(arr[i]));
 	heap_sort(arr, n);
+	printf("%d\n", n);
 	while (i < n)
 	{
 		printf("%d ", arr[i]);
