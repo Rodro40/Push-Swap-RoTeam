@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/22 12:03:35 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/23 15:56:05 by rodrigoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void			free_stack(t_stack_node *stack);
 int				ft_safe_atoi(const char *str, int *out);
 t_stack_node	*last_node(t_stack_node *stack);
 void			ft_putstr(char *str);
+void			complex_sort(t_stack_node **a, t_stack_node **b);
 int				len_stack(t_stack_node *stack);
 int				stack_sorted(t_stack_node *stack);
 

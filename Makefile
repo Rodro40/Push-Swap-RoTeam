@@ -19,6 +19,7 @@ src/moves/pushing.c \
 src/moves/rotating.c \
 src/moves/rrotating.c \
 src/moves/swapping.c \
+utils/complex_sort.c \
 utils/medium_sort.c \
 utils/simple_sort.c \
 utils/frees.c \
