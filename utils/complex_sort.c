@@ -17,7 +17,7 @@ static void	heapify(t_stack_node **arr, int n, int i)
 	int	root;
 	int	left;
 	int	right;
-	t_stack_node	temp;
+	t_stack_node	*temp;
 
 	root = i;
 	left = 2 * i + 1;
@@ -28,9 +28,9 @@ static void	heapify(t_stack_node **arr, int n, int i)
 		root = right;
 	if (root != i)
 	{
-		temp = *arr[i];
-		*arr[i] = *arr[root];
-		*arr[root] = temp;
+		temp = arr[i];
+		arr[i] = arr[root];
+		arr[root] = temp;
 		heapify(arr, n, root);
 	}
 }
@@ -39,7 +39,7 @@ void	heap_sort(t_stack_node **arr, int n)
 {
 	int	index;
 	int	j;
-	t_stack_node	temp;
+	t_stack_node	*temp;
 
 	index = (n / 2) - 1;
 	while (index >= 0)
@@ -50,9 +50,9 @@ void	heap_sort(t_stack_node **arr, int n)
 	j = n - 1;
 	while (j >= 0)
 	{
-		temp = *arr[0];
-		*arr[0] = *arr[j];
-		*arr[j] = temp;
+		temp = arr[0];
+		arr[0] = arr[j];
+		arr[j] = temp;
 		heapify(arr, j, 0);
 		j--;
 	}
