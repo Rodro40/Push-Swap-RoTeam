@@ -6,31 +6,31 @@
 /*   By: rodrigoa <rodrigoa@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:21:31 by rodrigoa          #+#    #+#             */
-/*   Updated: 2026/04/22 16:13:48 by rodrigoa         ###   ########.fr       */
+/*   Updated: 2026/04/23 13:40:51 by rodrigoa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
 void	heapify(int arr[], int n, int i)
 {
-	int	largest;
+	int	root;
 	int	left;
 	int	right;
 	int	temp;
 
-	largest = i;
+	root = i;
 	left = 2 * i + 1;
 	right = 2 * i + 2;
-	if (left < n && arr[left] > arr[i])
-		largest = left;
-	if (right < n && arr[right] > arr[i])
-		largest = right;
-	if (largest != i)
+	if (left < n && arr[left] > arr[root])
+		root = left;
+	if (right < n && arr[right] > arr[root])
+		root = right;
+	if (root != i)
 	{
 		temp = arr[i];
-		arr[i] = arr[largest];
-		arr[largest] = temp;
-		heapify(arr, n, largest);
+		arr[i] = arr[root];
+		arr[root] = temp;
+		heapify(arr, n, root);
 	}
 }
 
@@ -40,7 +40,7 @@ void	heap_sort(int arr[], int n)
 	int	j;
 	int	temp;
 
-	i = (n / 2);
+	i = (n / 2) - 1;
 	while (i >= 0)
 	{
 		heapify(arr, n, i);
@@ -58,16 +58,14 @@ void	heap_sort(int arr[], int n)
 }
 
 // TESTING
-int	main()
+int	params(int *arr)
 {
-	int	arr[] = {7, 5, 9, 42, 0, 10, 3, 4};
 	int	n;
 	int	i;
 
 	i = 0;
 	n = (sizeof(arr) / sizeof(arr[i]));
 	heap_sort(arr, n);
-	printf("%d\n", n);
 	while (i < n)
 	{
 		printf("%d ", arr[i]);
