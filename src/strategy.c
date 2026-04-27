@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 11:56:03 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/22 12:04:48 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/27 19:28:53 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	run_strategy(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 		medium_sort(a, b);
 	else if (ctx->strategy == COMPLEX)
 	{
-		/* complex_sort(a, b); CAMBIARLO CUANDO rodrigoa LO TERMINE */
-		medium_sort(a, b);
+		complex_sort(a, b);
 	}
 	else
 		run_adaptive(a, b, ctx);

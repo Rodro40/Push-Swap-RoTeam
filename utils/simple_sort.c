@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 11:36:35 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/21 19:11:18 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/27 19:01:11 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Finds the position (distance from top) of the node with the smallest index
 static int	get_min_pos(t_stack_node *stack)
 {
 	int	min_idx;
 	int	min_pos;
 	int	current_pos;
 
-	min_idx = 2147483647; // Max int value
+	min_idx = INT_MAX;
 	min_pos = 0;
 	current_pos = 0;
 	while (stack)
@@ -35,7 +34,6 @@ static int	get_min_pos(t_stack_node *stack)
 	return (min_pos);
 }
 
-// O(n^2) algorithm: pushes the minimum to B, then pushes everything back
 void	simple_sort(t_stack_node **a, t_stack_node **b)
 {
 	int	size;
@@ -45,12 +43,12 @@ void	simple_sort(t_stack_node **a, t_stack_node **b)
 	while (size > 0)
 	{
 		min_pos = get_min_pos(*a);
-		if (min_pos <= size / 2) // If it's in the upper half, rotate UP
+		if (min_pos <= size / 2)
 		{
 			while (min_pos-- > 0)
-				ra(a, 0); // 0 so it prints the move
+				ra(a, 0);
 		}
-		else // If it's in the lower half, rotate DOWN (reverse rotate)
+		else
 		{
 			min_pos = size - min_pos;
 			while (min_pos-- > 0)

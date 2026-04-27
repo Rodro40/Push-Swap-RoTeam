@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigoa <rodrigoa@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:21:31 by rodrigoa          #+#    #+#             */
-/*   Updated: 2026/04/23 13:40:51 by rodrigoa         ###   ########.fr       */
+/*   Updated: 2026/04/27 19:00:12 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdio.h>
 
 static void	heapify(t_stack_node **arr, int n, int i)
 {
-	int	root;
-	int	left;
-	int	right;
+	int				root;
+	int				left;
+	int				right;
 	t_stack_node	*temp;
 
 	root = i;
@@ -37,8 +38,8 @@ static void	heapify(t_stack_node **arr, int n, int i)
 
 void	heap_sort(t_stack_node **arr, int n)
 {
-	int	index;
-	int	j;
+	int				index;
+	int				j;
 	t_stack_node	*temp;
 
 	index = (n / 2) - 1;
@@ -61,10 +62,10 @@ void	heap_sort(t_stack_node **arr, int n)
 // TESTING
 void	complex_sort(t_stack_node **a, t_stack_node **b)
 {
-	int	n;
-	int	index;
-	int	bit;
-	int	max_bits;
+	int				n;
+	int				index;
+	int				bit;
+	int				max_bits;
 	t_stack_node	*current;
 	t_stack_node	**nodes;
 
