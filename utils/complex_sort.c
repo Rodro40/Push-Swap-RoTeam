@@ -6,12 +6,11 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/10 13:21:31 by rodrigoa          #+#    #+#             */
-/*   Updated: 2026/04/27 19:00:12 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/28 00:00:00 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	heapify(t_stack_node **arr, int n, int i)
 {
@@ -36,7 +35,7 @@ static void	heapify(t_stack_node **arr, int n, int i)
 	}
 }
 
-void	heap_sort(t_stack_node **arr, int n)
+static void	heap_sort(t_stack_node **arr, int n)
 {
 	int				index;
 	int				j;
@@ -59,13 +58,10 @@ void	heap_sort(t_stack_node **arr, int n)
 	}
 }
 
-// TESTING
 void	complex_sort(t_stack_node **a, t_stack_node **b)
 {
 	int				n;
 	int				index;
-	int				bit;
-	int				max_bits;
 	t_stack_node	*current;
 	t_stack_node	**nodes;
 
@@ -93,23 +89,4 @@ void	complex_sort(t_stack_node **a, t_stack_node **b)
 		index++;
 	}
 	free(nodes);
-	max_bits = 0;
-	while ((n - 1) >> max_bits > 0)
-		max_bits++;
-	bit = 0;
-	while (bit < max_bits)
-	{
-		index = 0;
-		while (index < n)
-		{
-			if (((*a)->index >> bit) & 1)
-				ra(a, 0);
-			else
-				pb(a, b, 0);
-			index++;
-		}
-		while (*b)
-			pa(a, b, 0);
-		bit++;
-	}
 }
