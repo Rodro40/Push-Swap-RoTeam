@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 12:01:36 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/22 12:05:13 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/27 19:46:35 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	init_ctx(int argc, char **argv, t_ctx *ctx)
 	ctx->strategy = ADAPTIVE;
 	ctx->bench = 0;
 	ctx->start_idx = 1;
+	ft_bzero(&ctx->b, sizeof(t_bench));
 	if (!parse_flags(argv, ctx))
 		return (-1);
 	if (ctx->start_idx >= argc)

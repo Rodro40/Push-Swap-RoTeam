@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/27 19:02:48 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/29 15:18:19 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,36 @@ typedef struct s_stack_node
 	int					index; // final position that it should end (0 a N-1)
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
+	struct s_ctx		*ctx;
 }	t_stack_node;
+
+typedef struct s_bench
+{
+	long	sa;
+	long	sb;
+	long	ss;
+	long	pa;
+	long	pb;
+	long	ra;
+	long	rb;
+	long	rr;
+	long	rra;
+	long	rrb;
+	long	rrr;
+	long	total;
+	float	disorder;
+}	t_bench;
 
 typedef struct s_ctx
 {
 	t_strategy	strategy;
 	int			bench;
 	int			start_idx;
+	t_bench		b;
 }	t_ctx;
+
+//PRINT BENCH
+void			print_bench(t_ctx *ctx);
 
 //FLAGS
 int				parse_flags(char **argv, t_ctx *ctx);
@@ -51,10 +73,11 @@ int				init_ctx(int argc, char **argv, t_ctx *ctx);
 void			run_strategy(t_stack_node **a, t_stack_node **b, t_ctx *ctx);
 
 //PARSER
-t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx);
+t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx,
+					t_ctx *ctx);
 int				is_valid_number(const char *str);
 int				check_duplicate(t_stack_node *stack, int num);
-void			add_to_stack(t_stack_node **stack, int num);
+void			add_to_stack(t_stack_node **stack, int num, t_ctx *ctx);
 
 //UTILS
 void			free_split(char **split);

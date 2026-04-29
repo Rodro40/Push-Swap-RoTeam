@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:18:58 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/22 12:03:56 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/29 15:16:22 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,17 @@ int	main(int argc, char **argv)
 		return (0);
 	if (status < 0)
 		return (write(2, "Error\n", 6), 1);
-	a = parse_and_fill_stack(argc, argv, ctx.start_idx);
+	a = parse_and_fill_stack(argc, argv, ctx.start_idx, &ctx);
 	if (!a)
 		return (write(2, "Error\n", 6), 1);
 	b = NULL;
 	set_node_index(a);
+	if (ctx.bench)
+		ctx.b.disorder = compute_disorder(a);
 	if (!stack_sorted(a))
 		run_strategy(&a, &b, &ctx);
+	if (ctx.bench)
+		print_bench(&ctx);
 	free_stack(a);
 	return (0);
 }

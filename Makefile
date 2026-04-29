@@ -14,6 +14,7 @@ src/disorder.c \
 src/flags.c \
 src/index.c \
 src/parser.c \
+src/print_bench.c \
 src/strategy.c \
 src/moves/pushing.c \
 src/moves/rotating.c \

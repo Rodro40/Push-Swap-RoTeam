@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 17:18:31 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 20:11:14 by roandres         ###   ########.fr       */
+/*   Updated: 2026/04/29 14:20:51 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_duplicate(t_stack_node *stack, int num)
 	return (0);
 }
 
-void	add_to_stack(t_stack_node **stack, int num)
+void	add_to_stack(t_stack_node **stack, int num, t_ctx *ctx)
 {
 	t_stack_node	*new_node;
 	t_stack_node	*last;
@@ -51,6 +51,7 @@ void	add_to_stack(t_stack_node **stack, int num)
 		return ;
 	new_node->value = num;
 	new_node->index = -1;
+	new_node->ctx = ctx;
 	new_node->next = NULL;
 	if (!*stack)
 	{
@@ -65,7 +66,7 @@ void	add_to_stack(t_stack_node **stack, int num)
 	}
 }
 
-static int	split_args(char **args, t_stack_node **stack)
+static int	split_args(char **args, t_stack_node **stack, t_ctx *ctx)
 {
 	int	i;
 	int	num;
@@ -76,13 +77,14 @@ static int	split_args(char **args, t_stack_node **stack)
 		if (!is_valid_number(args[i]) || !ft_safe_atoi(args[i], &num)
 			|| check_duplicate(*stack, num))
 			return (0);
-		add_to_stack(stack, num);
+		add_to_stack(stack, num, ctx);
 		i++;
 	}
 	return (1);
 }
 
-t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx)
+t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx,
+									t_ctx *ctx)
 {
 	t_stack_node	*stack;
 	char			**splited;
@@ -93,7 +95,7 @@ t_stack_node	*parse_and_fill_stack(int argc, char **argv, int start_idx)
 	while (i < argc)
 	{
 		splited = ft_split(argv[i], ' ');
-		if (!splited || !split_args(splited, &stack))
+		if (!splited || !split_args(splited, &stack, ctx))
 		{
 			free_split(splited);
 			free_stack(stack);
