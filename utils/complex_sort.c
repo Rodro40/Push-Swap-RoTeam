@@ -9,36 +9,38 @@
 /*   Updated: 2026/04/28 00:00:00 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-static int    get_max_index(t_stack_node *a)
+static int    get_max_bits(t_stack_node *a)
 {
     int    max;
-
-    if (!a)
-        return (0);
-    max = a->index;
-    while (a)
-    {
-        if (a->index > max)
-            max = a->index;
-        a = a->next;
-    }
-    return (max);
-}
-
-static int    get_max_bits(int max_index)
-{
     int    bits;
 
+    max = len_stack(a) - 1;
     bits = 0;
-    while ((max_index >> bits) != 0)
+    while ((max >> bits) != 0)
         bits++;
     return (bits);
 }
 
-static void    push_back_all(t_stack_node **a, t_stack_node **b)
+static void    sort_bit_pass(t_stack_node **a, t_stack_node **b, int bit)
+{
+    int    size;
+    int    i;
+
+    size = len_stack(*a);
+    i = 0;
+    while (i < size)
+    {
+        if ((((*a)->index >> bit) & 1) == 1)
+            ra(a, 0);
+        else
+            pb(a, b, 0);
+        i++;
+    }
+}
+
+static void    restore_stack(t_stack_node **a, t_stack_node **b)
 {
     while (*b)
         pa(a, b, 0);
@@ -46,30 +48,17 @@ static void    push_back_all(t_stack_node **a, t_stack_node **b)
 
 void    complex_sort(t_stack_node **a, t_stack_node **b)
 {
-    int    size;
-    int    bit;
     int    bits;
     int    i;
 
     if (!a || !*a || stack_sorted(*a))
         return ;
-    size = len_stack(*a);
-    bits = get_max_bits(get_max_index(*a));
-    bit = 0;
-    while (bit < bits)
+    bits = get_max_bits(*a);
+    i = 0;
+    while (i < bits)
     {
-        i = 0;
-        while (i < size)
-        {
-            if ((((*a)->index >> bit) & 1) == 0)
-                pb(a, b, 0);
-            else
-                ra(a, 0);
-			i++;
-        }
-        push_back_all(a, b);
-        if (stack_sorted(*a))
-            return ;
-        bit++;
+        sort_bit_pass(a, b, i);
+        restore_stack(a, b);
+        i++;
     }
 }
