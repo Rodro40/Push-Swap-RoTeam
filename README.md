@@ -1,5 +1,7 @@
 _This project has been created as part of the 42 curriculum by roandres, rodrigoa._
 
+# push_swap
+
 ### Description
 
 This repository contains our implementation of **push_swap**, a 42 group project focused on algorithmic thinking and optimization.  
