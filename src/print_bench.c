@@ -10,6 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_bench.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: roandres <roandres@student.42madrid.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/29                                 #+#    #+#          */
+/*   Updated: 2026/04/30                                 ###   ########.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void    put_2digits_fd(int n, int fd)
@@ -46,7 +58,7 @@ static void    print_strategy_line(t_ctx *ctx)
     else if (ctx->b.used_strategy == SIMPLE)
         ft_putstr_fd("simple (O(n^2))\n", 2);
     else if (ctx->b.used_strategy == MEDIUM)
-        ft_putstr_fd("medium (O(n*sqrt(n)))\n", 2);
+        ft_putstr_fd("medium (O(n*&#8730(n)))\n", 2);
     else if (ctx->b.used_strategy == COMPLEX)
         ft_putstr_fd("complex (O(n*log(n)))\n", 2);
     else
