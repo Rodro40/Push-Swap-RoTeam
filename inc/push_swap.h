@@ -85,7 +85,6 @@ void			free_stack(t_stack_node *stack);
 int				ft_safe_atoi(const char *str, int *out);
 t_stack_node	*last_node(t_stack_node *stack);
 void			ft_putstr(char *str);
-void			complex_sort(t_stack_node **a, t_stack_node **b);
 int				len_stack(t_stack_node *stack);
 int				stack_sorted(t_stack_node *stack);
 
@@ -105,6 +104,7 @@ void			ss(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
 
 //ALGORITHMS
 void			simple_sort(t_stack_node **a, t_stack_node **b);
+int				linear_sort(t_stack_node **a);
 void			medium_sort(t_stack_node **a, t_stack_node **b);
 void			complex_sort(t_stack_node **a, t_stack_node **b);
 
