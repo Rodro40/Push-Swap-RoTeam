@@ -18,11 +18,11 @@ static void	run_adaptive(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2f)
-		simple_sort(a, b);
+		linear_sort(a);
 	else if (disorder < 0.5f)
 		medium_sort(a, b);
 	else
-		medium_sort(a, b);
+		complex_sort(a, b);
 	(void)ctx;
 }
 
@@ -33,9 +33,7 @@ void	run_strategy(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 	else if (ctx->strategy == MEDIUM)
 		medium_sort(a, b);
 	else if (ctx->strategy == COMPLEX)
-	{
 		complex_sort(a, b);
-	}
 	else
 		run_adaptive(a, b, ctx);
 }
