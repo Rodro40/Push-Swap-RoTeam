@@ -5,9 +5,9 @@ static void    linear_pass(t_stack_node **a, int size)
     int    i;
 
     i = 0;
-    while (i < size)
+    while (i < size && (*a)->next)
     {
-        if ((*a)->next && (*a)->value > (*a)->next->value)
+        if ((*a)->value > (*a)->next->value)
             sa(a, 0);
         ra(a, 0);
         i++;
