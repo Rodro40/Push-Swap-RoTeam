@@ -41,16 +41,16 @@ static void    print_disorder_pct(t_ctx *ctx)
 static void    print_strategy_line(t_ctx *ctx)
 {
     ft_putstr_fd("[bench] strategy: ", 2);
-    if (ctx->strategy == LINEAR)
+    if (ctx->b.used_strategy == LINEAR)
         ft_putstr_fd("linear (O(n))\n", 2);
-    else if (ctx->strategy == SIMPLE)
+    else if (ctx->b.used_strategy == SIMPLE)
         ft_putstr_fd("simple (O(n^2))\n", 2);
-    else if (ctx->strategy == MEDIUM)
+    else if (ctx->b.used_strategy == MEDIUM)
         ft_putstr_fd("medium (O(n*sqrt(n)))\n", 2);
-    else if (ctx->strategy == COMPLEX)
+    else if (ctx->b.used_strategy == COMPLEX)
         ft_putstr_fd("complex (O(n*log(n)))\n", 2);
     else
-        ft_putstr_fd("adaptive (unresolved)\n", 2);
+        ft_putstr_fd("unresolved\n", 2);
 }
 
 static void    print_counts1(t_ctx *ctx)
