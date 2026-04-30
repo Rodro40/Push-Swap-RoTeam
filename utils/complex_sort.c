@@ -12,81 +12,64 @@
 
 #include "push_swap.h"
 
-static void	heapify(t_stack_node **arr, int n, int i)
+static int    get_max_index(t_stack_node *a)
 {
-	int				root;
-	int				left;
-	int				right;
-	t_stack_node	*temp;
+    int    max;
 
-	root = i;
-	left = 2 * i + 1;
-	right = 2 * i + 2;
-	if (left < n && arr[left]->value > arr[root]->value)
-		root = left;
-	if (right < n && arr[right]->value > arr[root]->value)
-		root = right;
-	if (root != i)
-	{
-		temp = arr[i];
-		arr[i] = arr[root];
-		arr[root] = temp;
-		heapify(arr, n, root);
-	}
+    if (!a)
+        return (0);
+    max = a->index;
+    while (a)
+    {
+        if (a->index > max)
+            max = a->index;
+        a = a->next;
+    }
+    return (max);
 }
 
-static void	heap_sort(t_stack_node **arr, int n)
+static int    get_max_bits(int max_index)
 {
-	int				index;
-	int				j;
-	t_stack_node	*temp;
+    int    bits;
 
-	index = (n / 2) - 1;
-	while (index >= 0)
-	{
-		heapify(arr, n, index);
-		index--;
-	}
-	j = n - 1;
-	while (j >= 0)
-	{
-		temp = arr[0];
-		arr[0] = arr[j];
-		arr[j] = temp;
-		heapify(arr, j, 0);
-		j--;
-	}
+    bits = 0;
+    while ((max_index >> bits) != 0)
+        bits++;
+    return (bits);
 }
 
-void	complex_sort(t_stack_node **a, t_stack_node **b)
+static void    push_back_all(t_stack_node **a, t_stack_node **b)
 {
-	int				n;
-	int				index;
-	t_stack_node	*current;
-	t_stack_node	**nodes;
+    while (*b)
+        pa(a, b, 0);
+}
 
-	(void)b;
-	if (!a || !*a)
-		return ;
-	n = len_stack(*a);
-	if (n <= 1)
-		return ;
-	nodes = malloc(n * sizeof(*nodes));
-	if (!nodes)
-		return ;
-	current = *a;
-	index = 0;
-	while (current && index < n)
-	{
-		nodes[index++] = current;
-		current = current->next;
-	}
-	heap_sort(nodes, n);
-	index = 0;
-	while (index < n)
-	{
-		nodes[index]->index = index;
-		index++;
-	}
-	free(nodes);
+void    complex_sort(t_stack_node **a, t_stack_node **b)
+{
+    int    size;
+    int    bit;
+    int    bits;
+    int    i;
+
+    if (!a || !*a || stack_sorted(*a))
+        return ;
+    size = len_stack(*a);
+    bits = get_max_bits(get_max_index(*a));
+    bit = 0;
+    while (bit < bits)
+    {
+        i = 0;
+        while (i < size)
+        {
+            if ((((*a)->index >> bit) & 1) == 0)
+                pb(a, b, 0);
+            else
+                ra(a, 0);
+			i++;
+        }
+        push_back_all(a, b);
+        if (stack_sorted(*a))
+            return ;
+        bit++;
+    }
 }
