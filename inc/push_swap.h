@@ -25,6 +25,7 @@ typedef enum e_strategy
 	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
+	LINEAR,
 	COMPLEX
 }	t_strategy;
 
