@@ -53,6 +53,7 @@ typedef struct s_bench
 	long	rrr;
 	long	total;
 	float	disorder;
+	int		used_complexity;
 	int		used_strategy;
 }	t_bench;
 
