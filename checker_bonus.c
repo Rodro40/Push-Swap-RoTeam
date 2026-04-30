@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "inc/push_swap.h"
 
 static int    exec_instruction(char *line, t_stack_node **a, t_stack_node **b)
 {
