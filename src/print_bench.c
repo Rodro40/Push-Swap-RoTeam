@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/* We only need to check if we already have the fd functions from libft to replace the write */
 static void    put_2digits_fd(int n, int fd)
 {
     char    c;
