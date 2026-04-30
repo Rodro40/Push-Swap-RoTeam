@@ -18,11 +18,23 @@ static void	run_adaptive(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 
 	disorder = compute_disorder(*a);
 	if (disorder < 0.2f)
+	{
+		if (ctx->bench)
+			ctx->b.used_strategy = LINEAR;
 		linear_sort(a);
+	}
 	else if (disorder < 0.5f)
+	{
+		if (ctx->bench)
+			ctx->b.used_strategy = MEDIUM;
 		medium_sort(a, b);
+	}
 	else
+	{
+		if (ctx->bench)
+			ctx->b.used_strategy = COMPLEX;
 		complex_sort(a, b);
+	}
 	(void)ctx;
 }
 
