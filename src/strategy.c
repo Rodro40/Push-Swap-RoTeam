@@ -21,6 +21,12 @@ static void	run_adaptive(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 	{
 		if (ctx->bench)
 			ctx->b.used_strategy = LINEAR;
+ 		if (!linear_sort(a))
+    	{
+        	if (ctx->bench)
+            	ctx->b.used_strategy = MEDIUM;
+        	medium_sort(a, b);
+    	}
 		linear_sort(a);
 	}
 	else if (disorder < 0.5f)
@@ -41,11 +47,23 @@ static void	run_adaptive(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 void	run_strategy(t_stack_node **a, t_stack_node **b, t_ctx *ctx)
 {
 	if (ctx->strategy == SIMPLE)
+	{
+		if (ctx->bench)
+            ctx->b.used_strategy = SIMPLE;
 		simple_sort(a, b);
+	}
 	else if (ctx->strategy == MEDIUM)
+	{
+		if (ctx->bench)
+            ctx->b.used_strategy = MEDIUM;
 		medium_sort(a, b);
+	}
 	else if (ctx->strategy == COMPLEX)
+	{
+		if (ctx->bench)
+            ctx->b.used_strategy = COMPLEX;
 		complex_sort(a, b);
+	}
 	else
 		run_adaptive(a, b, ctx);
 }
