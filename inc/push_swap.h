@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/29 15:18:19 by roandres         ###   ########.fr       */
+/*   Updated: 2026/05/02 17:45:53 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@
 # include <limits.h>
 # include <unistd.h>
 
-# include <stdio.h> //TESTING AND DEBUGGING WITH PRINTF DELETE AFTER;
-
 typedef enum e_strategy
 {
 	ADAPTIVE,
 	SIMPLE,
 	MEDIUM,
-	LINEAR,
 	COMPLEX
 }	t_strategy;
 
@@ -107,7 +104,6 @@ void			ss(t_stack_node **stack_a, t_stack_node **stack_b, int testing);
 
 //ALGORITHMS
 void			simple_sort(t_stack_node **a, t_stack_node **b);
-int				linear_sort(t_stack_node **a);
 void			medium_sort(t_stack_node **a, t_stack_node **b);
 void			complex_sort(t_stack_node **a, t_stack_node **b);
 
