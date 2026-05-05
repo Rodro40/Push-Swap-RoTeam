@@ -6,7 +6,7 @@
 /*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 14:53:04 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/16 20:11:57 by roandres         ###   ########.fr       */
+/*   Updated: 2026/05/05 13:48:35 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_safe_atoi(const char *str, int *out)
 {
-	int	i;
-	int	nb;
-	int	sign;
+	int		i;
+	long	nb;
+	int		sign;
 
 	i = 0;
 	nb = 0;
