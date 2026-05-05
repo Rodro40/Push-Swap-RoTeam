@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 12:01:36 by roandres          #+#    #+#             */
-/*   Updated: 2026/04/27 19:46:35 by roandres         ###   ########.fr       */
+/*   Updated: 2026/05/05 12:57:07 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int	parse_flags(char **argv, t_ctx *ctx)
 	{
 		if (!ft_strncmp(argv[ctx->start_idx], "--bench", 8))
 			ctx->bench = 1;
+		if (!ft_strncmp(argv[ctx->start_idx], "--fn", 5))
+			ctx->fn = 1;
 		else if (check_strat(argv[ctx->start_idx], &ctx->strategy))
 		{
 			if (s_set)

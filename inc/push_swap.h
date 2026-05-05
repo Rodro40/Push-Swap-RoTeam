@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: roandres <roandres@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: roandres <roandres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 18:19:28 by roandres          #+#    #+#             */
-/*   Updated: 2026/05/02 17:45:53 by roandres         ###   ########.fr       */
+/*   Updated: 2026/05/05 12:56:17 by roandres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_ctx
 {
 	t_strategy	strategy;
 	int			bench;
+	int			fn;
 	int			start_idx;
 	t_bench		b;
 }	t_ctx;
